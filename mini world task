@@ -1,0 +1,48 @@
+import random
+
+quote_categories = {
+    "motivation": [
+        "Believe you can and you're halfway there. - Theodore Roosevelt",
+        "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+        "The only way to do great work is to love what you do. - Steve Jobs",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill"
+    ],
+    "success": [
+        "Success usually comes to those who are too busy to be looking for it. - Henry David Thoreau",
+        "The road to success and the road to failure are almost exactly the same. - Colin R. Davis",
+        "Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer",
+        "The secret to success is to know something nobody else knows. - Aristotle Onassis"
+    ],
+    "life": [
+        "In the end, it's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
+        "Life is really simple, but we insist on making it complicated. - Confucius",
+        "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
+        "Life is either a daring adventure or nothing at all. - Helen Keller"
+    ],
+    "love": [
+        "The greatest happiness of life is the conviction that we are loved; loved for ourselves, or rather, loved in spite of ourselves. - Victor Hugo",
+        "Love yourself first and everything else falls into line. - Lucille Ball",
+        "The best thing to hold onto in life is each other. - Audrey Hepburn",
+        "Love is composed of a single soul inhabiting two bodies. - Aristotle"
+    ]
+}
+
+
+name = input("Enter your name: ")
+
+print("Select a category for the quote:")
+for index, category in enumerate(quote_categories.keys(), start=1):
+    print(f"{index}. {category.capitalize()}")
+
+category_choice = int(input("Enter the number of the category: "))
+
+category_list = list(quote_categories.values())[category_choice - 1]
+
+random_quote = random.choice(category_list)
+
+personalized_quote = random_quote.replace("{name}", name)
+
+print("\nHere's your personalized quote:")
+print(personalized_quote)
+
+
